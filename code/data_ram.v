@@ -26,7 +26,7 @@
 // File:    data_ram.v
 // Author:  Lei Silei
 // E-mail:  leishangwen@163.com
-// Description: Êı¾İ´æ´¢Æ÷
+// Description: æ•°æ®å­˜å‚¨å™¨
 // Revision: 1.0
 //////////////////////////////////////////////////////////////////////
 

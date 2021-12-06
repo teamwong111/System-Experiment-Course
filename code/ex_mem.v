@@ -26,7 +26,7 @@
 // File:    ex_mem.v
 // Author:  Lei Silei
 // E-mail:  leishangwen@163.com
-// Description: EX/MEM½×¶ÎµÄ¼Ä´æÆ÷
+// Description: EX/MEMé˜¶æ®µçš„å¯„å­˜å™¨
 // Revision: 1.0
 //////////////////////////////////////////////////////////////////////
 
@@ -37,11 +37,11 @@ module ex_mem(
 	input	wire										clk,
 	input wire										rst,
 
-	//À´×Ô¿ØÖÆÄ£¿éµÄĞÅÏ¢
+	//æ¥è‡ªæ§åˆ¶æ¨¡å—çš„ä¿¡æ¯
 	input wire[5:0]							 stall,	
 	input wire                   flush,
 	
-	//À´×ÔÖ´ĞĞ½×¶ÎµÄĞÅÏ¢	
+	//æ¥è‡ªæ‰§è¡Œé˜¶æ®µçš„ä¿¡æ¯	
 	input wire[`RegAddrBus]       ex_wd,
 	input wire                    ex_wreg,
 	input wire[`RegBus]					 ex_wdata, 	
@@ -49,7 +49,7 @@ module ex_mem(
 	input wire[`RegBus]           ex_lo,
 	input wire                    ex_whilo, 	
 
-  //ÎªÊµÏÖ¼ÓÔØ¡¢·Ã´æÖ¸Áî¶øÌí¼Ó
+  //ä¸ºå®ç°åŠ è½½ã€è®¿å­˜æŒ‡ä»¤è€Œæ·»åŠ 
   input wire[`AluOpBus]        ex_aluop,
 	input wire[`RegBus]          ex_mem_addr,
 	input wire[`RegBus]          ex_reg2,
@@ -65,7 +65,7 @@ module ex_mem(
 	input wire                   ex_is_in_delayslot,
 	input wire[`RegBus]          ex_current_inst_address,
 	
-	//ËÍµ½·Ã´æ½×¶ÎµÄĞÅÏ¢
+	//é€åˆ°è®¿å­˜é˜¶æ®µçš„ä¿¡æ¯
 	output reg[`RegAddrBus]      mem_wd,
 	output reg                   mem_wreg,
 	output reg[`RegBus]					 mem_wdata,
@@ -73,7 +73,7 @@ module ex_mem(
 	output reg[`RegBus]          mem_lo,
 	output reg                   mem_whilo,
 
-  //ÎªÊµÏÖ¼ÓÔØ¡¢·Ã´æÖ¸Áî¶øÌí¼Ó
+  //ä¸ºå®ç°åŠ è½½ã€è®¿å­˜æŒ‡ä»¤è€Œæ·»åŠ 
   output reg[`AluOpBus]        mem_aluop,
 	output reg[`RegBus]          mem_mem_addr,
 	output reg[`RegBus]          mem_reg2,

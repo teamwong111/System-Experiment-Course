@@ -26,7 +26,7 @@
 // File:    mem_wb.v
 // Author:  Lei Silei
 // E-mail:  leishangwen@163.com
-// Description: MEM/WB½×¶ÎµÄ¼Ä´æÆ÷
+// Description: MEM/WBé˜¶æ®µçš„å¯„å­˜å™¨
 // Revision: 1.0
 //////////////////////////////////////////////////////////////////////
 
@@ -37,10 +37,10 @@ module mem_wb(
 	input	wire										clk,
 	input wire										rst,
 
-  //À´×Ô¿ØÖÆÄ£¿éµÄĞÅÏ¢
+  //æ¥è‡ªæ§åˆ¶æ¨¡å—çš„ä¿¡æ¯
 	input wire[5:0]               stall,	
   input wire                    flush,	
-	//À´×Ô·Ã´æ½×¶ÎµÄĞÅÏ¢	
+	//æ¥è‡ªè®¿å­˜é˜¶æ®µçš„ä¿¡æ¯	
 	input wire[`RegAddrBus]       mem_wd,
 	input wire                    mem_wreg,
 	input wire[`RegBus]					 mem_wdata,
@@ -55,7 +55,7 @@ module mem_wb(
 	input wire[4:0]              mem_cp0_reg_write_addr,
 	input wire[`RegBus]          mem_cp0_reg_data,			
 
-	//ËÍµ½»ØĞ´½×¶ÎµÄĞÅÏ¢
+	//é€åˆ°å›å†™é˜¶æ®µçš„ä¿¡æ¯
 	output reg[`RegAddrBus]      wb_wd,
 	output reg                   wb_wreg,
 	output reg[`RegBus]					 wb_wdata,

@@ -26,7 +26,7 @@
 // File:    pc_reg.v
 // Author:  Lei Silei
 // E-mail:  leishangwen@163.com
-// Description: Ö¸ÁîÖ¸Õë¼Ä´æÆ÷PC
+// Description: æŒ‡ä»¤æŒ‡é’ˆå¯„å­˜å™¨PC
 // Revision: 1.0
 //////////////////////////////////////////////////////////////////////
 
@@ -37,12 +37,12 @@ module pc_reg(
 	input	wire										clk,
 	input wire										rst,
 
-	//À´×Ô¿ØÖÆÄ£¿éµÄĞÅÏ¢
+	//æ¥è‡ªæ§åˆ¶æ¨¡å—çš„ä¿¡æ¯
 	input wire[5:0]               stall,
 	input wire                    flush,
 	input wire[`RegBus]           new_pc,
 
-	//À´×ÔÒëÂë½×¶ÎµÄĞÅÏ¢
+	//æ¥è‡ªè¯‘ç é˜¶æ®µçš„ä¿¡æ¯
 	input wire                    branch_flag_i,
 	input wire[`RegBus]           branch_target_address_i,
 	

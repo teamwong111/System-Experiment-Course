@@ -26,7 +26,7 @@
 // File:    mem.v
 // Author:  Lei Silei
 // E-mail:  leishangwen@163.com
-// Description: ·Ã´æ½×¶Î
+// Description: è®¿å­˜é˜¶æ®µ
 // Revision: 1.0
 //////////////////////////////////////////////////////////////////////
 
@@ -36,7 +36,7 @@ module mem(
 
 	input wire										rst,
 	
-	//À´×ÔÖ´ĞĞ½×¶ÎµÄĞÅÏ¢	
+	//æ¥è‡ªæ‰§è¡Œé˜¶æ®µçš„ä¿¡æ¯	
 	input wire[`RegAddrBus]       wd_i,
 	input wire                    wreg_i,
 	input wire[`RegBus]					  wdata_i,
@@ -48,16 +48,16 @@ module mem(
 	input wire[`RegBus]          mem_addr_i,
 	input wire[`RegBus]          reg2_i,
 	
-	//À´×ÔmemoryµÄĞÅÏ¢
+	//æ¥è‡ªmemoryçš„ä¿¡æ¯
 	input wire[`RegBus]          mem_data_i,
 
-	//LLbit_iÊÇLLbit¼Ä´æÆ÷µÄÖµ
+	//LLbit_iæ˜¯LLbitå¯„å­˜å™¨çš„å€¼
 	input wire                  LLbit_i,
-	//µ«²»Ò»¶¨ÊÇ×îĞÂÖµ£¬»ØĞ´½×¶Î¿ÉÄÜÒªĞ´LLbit£¬ËùÒÔ»¹Òª½øÒ»²½ÅĞ¶Ï
+	//ä½†ä¸ä¸€å®šæ˜¯æœ€æ–°å€¼ï¼Œå›å†™é˜¶æ®µå¯èƒ½è¦å†™LLbitï¼Œæ‰€ä»¥è¿˜è¦è¿›ä¸€æ­¥åˆ¤æ–­
 	input wire                  wb_LLbit_we_i,
 	input wire                  wb_LLbit_value_i,
 
-	//Ğ­´¦ÀíÆ÷CP0µÄĞ´ĞÅºÅ
+	//åå¤„ç†å™¨CP0çš„å†™ä¿¡å·
 	input wire                   cp0_reg_we_i,
 	input wire[4:0]              cp0_reg_write_addr_i,
 	input wire[`RegBus]          cp0_reg_data_i,
@@ -66,17 +66,17 @@ module mem(
 	input wire                   is_in_delayslot_i,
 	input wire[`RegBus]          current_inst_address_i,	
 	
-	//CP0µÄ¸÷¸ö¼Ä´æÆ÷µÄÖµ£¬µ«²»Ò»¶¨ÊÇ×îĞÂµÄÖµ£¬Òª·ÀÖ¹»ØĞ´½×¶ÎÖ¸ÁîĞ´CP0
+	//CP0çš„å„ä¸ªå¯„å­˜å™¨çš„å€¼ï¼Œä½†ä¸ä¸€å®šæ˜¯æœ€æ–°çš„å€¼ï¼Œè¦é˜²æ­¢å›å†™é˜¶æ®µæŒ‡ä»¤å†™CP0
 	input wire[`RegBus]          cp0_status_i,
 	input wire[`RegBus]          cp0_cause_i,
 	input wire[`RegBus]          cp0_epc_i,
 
-	//»ØĞ´½×¶ÎµÄÖ¸ÁîÊÇ·ñÒªĞ´CP0£¬ÓÃÀ´¼ì²âÊı¾İÏà¹Ø
+	//å›å†™é˜¶æ®µçš„æŒ‡ä»¤æ˜¯å¦è¦å†™CP0ï¼Œç”¨æ¥æ£€æµ‹æ•°æ®ç›¸å…³
   input wire                    wb_cp0_reg_we,
 	input wire[4:0]               wb_cp0_reg_write_addr,
 	input wire[`RegBus]           wb_cp0_reg_data,
 	
-	//ËÍµ½»ØĞ´½×¶ÎµÄĞÅÏ¢
+	//é€åˆ°å›å†™é˜¶æ®µçš„ä¿¡æ¯
 	output reg[`RegAddrBus]      wd_o,
 	output reg                   wreg_o,
 	output reg[`RegBus]					 wdata_o,
@@ -91,7 +91,7 @@ module mem(
 	output reg[4:0]              cp0_reg_write_addr_o,
 	output reg[`RegBus]          cp0_reg_data_o,
 	
-	//ËÍµ½memoryµÄĞÅÏ¢
+	//é€åˆ°memoryçš„ä¿¡æ¯
 	output reg[`RegBus]          mem_addr_o,
 	output wire									 mem_we_o,
 	output reg[3:0]              mem_sel_o,
@@ -120,7 +120,7 @@ module mem(
 	assign current_inst_address_o = current_inst_address_i;
 	assign cp0_epc_o = cp0_epc;
 
-  //»ñÈ¡×îĞÂµÄLLbitµÄÖµ
+  //è·å–æœ€æ–°çš„LLbitçš„å€¼
 	always @ (*) begin
 		if(rst == `RstEnable) begin
 			LLbit <= 1'b0;
@@ -432,7 +432,7 @@ module mem(
 					end
 				end				
 				default:		begin
-          //Ê²Ã´Ò²²»×ö
+          //ä»€ä¹ˆä¹Ÿä¸åš
 				end
 			endcase							
 		end    //if
@@ -491,7 +491,7 @@ module mem(
 					excepttype_o <= 32'h0000000d;        //trap
 				end else if(excepttype_i[11] == 1'b1) begin  //ov
 					excepttype_o <= 32'h0000000c;
-				end else if(excepttype_i[12] == 1'b1) begin  //·µ»ØÖ¸Áî
+				end else if(excepttype_i[12] == 1'b1) begin  //è¿”å›æŒ‡ä»¤
 					excepttype_o <= 32'h0000000e;
 				end
 			end

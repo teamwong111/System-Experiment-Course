@@ -26,7 +26,7 @@
 // File:    if_id.v
 // Author:  Lei Silei
 // E-mail:  leishangwen@163.com
-// Description: IF/ID½×¶ÎµÄ¼Ä´æÆ÷
+// Description: IF/IDé˜¶æ®µçš„å¯„å­˜å™¨
 // Revision: 1.0
 //////////////////////////////////////////////////////////////////////
 
@@ -37,7 +37,7 @@ module if_id(
 	input	wire										clk,
 	input wire										rst,
 
-	//À´×Ô¿ØÖÆÄ£¿éµÄĞÅÏ¢
+	//æ¥è‡ªæ§åˆ¶æ¨¡å—çš„ä¿¡æ¯
 	input wire[5:0]               stall,	
 	input wire                    flush,
 

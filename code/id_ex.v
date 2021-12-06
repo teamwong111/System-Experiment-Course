@@ -26,7 +26,7 @@
 // File:    id_ex.v
 // Author:  Lei Silei
 // E-mail:  leishangwen@163.com
-// Description: ID/EX½×¶ÎµÄ¼Ä´æÆ÷
+// Description: ID/EXé˜¶æ®µçš„å¯„å­˜å™¨
 // Revision: 1.0
 //////////////////////////////////////////////////////////////////////
 
@@ -37,11 +37,11 @@ module id_ex(
 	input	wire										clk,
 	input wire										rst,
 
-	//À´×Ô¿ØÖÆÄ£¿éµÄĞÅÏ¢
+	//æ¥è‡ªæ§åˆ¶æ¨¡å—çš„ä¿¡æ¯
 	input wire[5:0]							 stall,
 	input wire                   flush,
 	
-	//´ÓÒëÂë½×¶Î´«µİµÄĞÅÏ¢
+	//ä»è¯‘ç é˜¶æ®µä¼ é€’çš„ä¿¡æ¯
 	input wire[`AluOpBus]         id_aluop,
 	input wire[`AluSelBus]        id_alusel,
 	input wire[`RegBus]           id_reg1,
@@ -55,7 +55,7 @@ module id_ex(
 	input wire[`RegBus]           id_current_inst_address,
 	input wire[31:0]              id_excepttype,
 	
-	//´«µİµ½Ö´ĞĞ½×¶ÎµÄĞÅÏ¢
+	//ä¼ é€’åˆ°æ‰§è¡Œé˜¶æ®µçš„ä¿¡æ¯
 	output reg[`AluOpBus]         ex_aluop,
 	output reg[`AluSelBus]        ex_alusel,
 	output reg[`RegBus]           ex_reg1,

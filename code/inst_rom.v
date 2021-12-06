@@ -26,7 +26,7 @@
 // File:    inst_rom.v
 // Author:  Lei Silei
 // E-mail:  leishangwen@163.com
-// Description: Ö¸Áî´æ´¢Æ÷
+// Description: æŒ‡ä»¤å­˜å‚¨å™¨
 // Revision: 1.0
 //////////////////////////////////////////////////////////////////////
 

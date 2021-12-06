@@ -26,7 +26,7 @@
 // File:    hilo_reg.v
 // Author:  Lei Silei
 // E-mail:  leishangwen@163.com
-// Description: ±£´æ³Ë·¨½á¹ûµÄHI¡¢LO¼Ä´æÆ÷
+// Description: ä¿å­˜ä¹˜æ³•ç»“æœçš„HIã€LOå¯„å­˜å™¨
 // Revision: 1.0
 //////////////////////////////////////////////////////////////////////
 
@@ -37,12 +37,12 @@ module hilo_reg(
 	input	wire										clk,
 	input wire										rst,
 	
-	//Ğ´¶Ë¿Ú
+	//å†™ç«¯å£
 	input wire										we,
 	input wire[`RegBus]				    hi_i,
 	input wire[`RegBus]						lo_i,
 	
-	//¶Á¶Ë¿Ú1
+	//è¯»ç«¯å£1
 	output reg[`RegBus]           hi_o,
 	output reg[`RegBus]           lo_o
 	

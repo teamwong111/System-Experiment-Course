@@ -2,20 +2,22 @@
 
 [中文文档](https://github.com/teamwong111/System-Experiment-Course/blob/main/README-cn.md)
 
-It is my term project repo of System-Experiment-Course(2021 spring) in Tongji University
+It is my term project repo of System-Experiment-Course(2020-2021) in Tongji University
 
 ---
 
 ## Contents
 - [Introduction](#Introduction)
-- [Running environment](#Running environment)
-- [Defenders](#Defenders)
+- [Running](#Running)
+- [Screenshot](#Screenshot)
+- [Improvement](#Improvement)
+- [Contribution](#Contribution)
 - [License](#License)
 
 ---
 
 ## Introduction
-This repo is one of the term projects of Tongji University's System Experiment Course in 2021 spring. There are three term projects in this course, which are as follows:
+This repo is one of the term projects of Tongji University's System Experiment Course in 2020-2021. There are three term projects in this course, which are as follows:
 
 1. 89 instructions' CPU
 2. Transplant ucos-II operating system
@@ -27,16 +29,31 @@ Because the latter two projects are mainly for reference to other people's open 
 
 ---
 
-## Running environment
+## Running
 - OS: Windows 10
 - IDE: Vivado 2020.2
+- Editor: Visual Studio code(recommend to use with extensions)
+- Encoding: UTF-8
 
 ---
 
-## Defenders
-The repo is currently owned by https://github.com/teamwong111 maintain
+## Screenshot
+![Validation](./resources/1.png)
+
+---
+
+## Improvement
+1. Complete transplanting ucos-II operating system and writing application program
+2. Refactoring code
+
+---
+
+## Contributing
+The repo is currently maintained by https://github.com/teamwong111
 
 If I have infringement or you have any questions, please contact me by email wungjz@outlook.com
+
+Contributions of any kind are welcome
 
 ---
 

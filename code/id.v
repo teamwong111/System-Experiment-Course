@@ -26,7 +26,7 @@
 // File:    id.v
 // Author:  Lei Silei
 // E-mail:  leishangwen@163.com
-// Description: ÒëÂë½×¶Î
+// Description: è¯‘ç é˜¶æ®µ
 // Revision: 1.0
 //////////////////////////////////////////////////////////////////////
 
@@ -38,15 +38,15 @@ module id(
 	input wire[`InstAddrBus]			pc_i,
 	input wire[`InstBus]          inst_i,
 
-  //´¦ÓÚÖ´ĞĞ½×¶ÎµÄÖ¸ÁîµÄÒ»Ğ©ĞÅÏ¢£¬ÓÃÓÚ½â¾öloadÏà¹Ø
+  //å¤„äºæ‰§è¡Œé˜¶æ®µçš„æŒ‡ä»¤çš„ä¸€äº›ä¿¡æ¯ï¼Œç”¨äºè§£å†³loadç›¸å…³
   input wire[`AluOpBus]					ex_aluop_i,
 
-	//´¦ÓÚÖ´ĞĞ½×¶ÎµÄÖ¸ÁîÒªĞ´ÈëµÄÄ¿µÄ¼Ä´æÆ÷ĞÅÏ¢
+	//å¤„äºæ‰§è¡Œé˜¶æ®µçš„æŒ‡ä»¤è¦å†™å…¥çš„ç›®çš„å¯„å­˜å™¨ä¿¡æ¯
 	input wire										ex_wreg_i,
 	input wire[`RegBus]						ex_wdata_i,
 	input wire[`RegAddrBus]       ex_wd_i,
 	
-	//´¦ÓÚ·Ã´æ½×¶ÎµÄÖ¸ÁîÒªĞ´ÈëµÄÄ¿µÄ¼Ä´æÆ÷ĞÅÏ¢
+	//å¤„äºè®¿å­˜é˜¶æ®µçš„æŒ‡ä»¤è¦å†™å…¥çš„ç›®çš„å¯„å­˜å™¨ä¿¡æ¯
 	input wire										mem_wreg_i,
 	input wire[`RegBus]						mem_wdata_i,
 	input wire[`RegAddrBus]       mem_wd_i,
@@ -54,16 +54,16 @@ module id(
 	input wire[`RegBus]           reg1_data_i,
 	input wire[`RegBus]           reg2_data_i,
 
-	//Èç¹ûÉÏÒ»ÌõÖ¸ÁîÊÇ×ªÒÆÖ¸Áî£¬ÄÇÃ´ÏÂÒ»ÌõÖ¸ÁîÔÚÒëÂëµÄÊ±ºòis_in_delayslotÎªtrue
+	//å¦‚æœä¸Šä¸€æ¡æŒ‡ä»¤æ˜¯è½¬ç§»æŒ‡ä»¤ï¼Œé‚£ä¹ˆä¸‹ä¸€æ¡æŒ‡ä»¤åœ¨è¯‘ç çš„æ—¶å€™is_in_delayslotä¸ºtrue
 	input wire                    is_in_delayslot_i,
 
-	//ËÍµ½regfileµÄĞÅÏ¢
+	//é€åˆ°regfileçš„ä¿¡æ¯
 	output reg                    reg1_read_o,
 	output reg                    reg2_read_o,     
 	output reg[`RegAddrBus]       reg1_addr_o,
 	output reg[`RegAddrBus]       reg2_addr_o, 	      
 	
-	//ËÍµ½Ö´ĞĞ½×¶ÎµÄĞÅÏ¢
+	//é€åˆ°æ‰§è¡Œé˜¶æ®µçš„ä¿¡æ¯
 	output reg[`AluOpBus]         aluop_o,
 	output reg[`AluSelBus]        alusel_o,
 	output reg[`RegBus]           reg1_o,
@@ -117,8 +117,8 @@ module id(
 
   assign inst_o = inst_i;
 
-  //exceptiontypeµÄµÍ8bitÁô¸øÍâ²¿ÖĞ¶Ï£¬µÚ9bit±íÊ¾ÊÇ·ñÊÇsyscallÖ¸Áî
-  //µÚ10bit±íÊ¾ÊÇ·ñÊÇÎŞĞ§Ö¸Áî£¬µÚ11bit±íÊ¾ÊÇ·ñÊÇtrapÖ¸Áî
+  //exceptiontypeçš„ä½8bitç•™ç»™å¤–éƒ¨ä¸­æ–­ï¼Œç¬¬9bitè¡¨ç¤ºæ˜¯å¦æ˜¯syscallæŒ‡ä»¤
+  //ç¬¬10bitè¡¨ç¤ºæ˜¯å¦æ˜¯æ— æ•ˆæŒ‡ä»¤ï¼Œç¬¬11bitè¡¨ç¤ºæ˜¯å¦æ˜¯trapæŒ‡ä»¤
   assign excepttype_o = {19'b0,excepttype_is_eret,2'b0,
   												instvalid, excepttype_is_syscall,8'b0};
   //assign excepttye_is_trapinst = 1'b0;
@@ -359,7 +359,7 @@ module id(
 								end	
 					 endcase									
 					end									  
-		  	`EXE_ORI:			begin                        //ORIÖ¸Áî
+		  	`EXE_ORI:			begin                        //ORIæŒ‡ä»¤
 		  		wreg_o <= `WriteEnable;		aluop_o <= `EXE_OR_OP;
 		  		alusel_o <= `EXE_RES_LOGIC; reg1_read_o <= 1'b1;	reg2_read_o <= 1'b0;	  	
 					imm <= {16'h0, inst_i[15:0]};		wd_o <= inst_i[20:16];

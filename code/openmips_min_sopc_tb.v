@@ -79,7 +79,7 @@ integer fp_w;
   end*/
 initial
 begin
-fp_w=$fopen("D:/Xilinx/cputest/cpu89/data_out.txt","w");//以写的方式打开文件
+fp_w=$fopen("D:/Xilinx/cputest/cpu89/data_out.txt","w");//浠ュ啓鐨勬柟寮忔墦寮�鏂囦欢
 clk=0;
 rst=1;
 #10;

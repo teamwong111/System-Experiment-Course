@@ -26,7 +26,7 @@
 // File:    regfile.v
 // Author:  Lei Silei
 // E-mail:  leishangwen@163.com
-// Description: Í¨ÓÃ¼Ä´æÆ÷£¬¹²32¸ö
+// Description: é€šç”¨å¯„å­˜å™¨ï¼Œå…±32ä¸ª
 // Revision: 1.0
 //////////////////////////////////////////////////////////////////////
 
@@ -37,17 +37,17 @@ module regfile(
 	input	wire										clk,
 	input wire										rst,
 	
-	//Ğ´¶Ë¿Ú
+	//å†™ç«¯å£
 	input wire										we,
 	input wire[`RegAddrBus]				waddr,
 	input wire[`RegBus]						wdata,
 	
-	//¶Á¶Ë¿Ú1
+	//è¯»ç«¯å£1
 	input wire										re1,
 	input wire[`RegAddrBus]			  raddr1,
 	output reg[`RegBus]           rdata1,
 	
-	//¶Á¶Ë¿Ú2
+	//è¯»ç«¯å£2
 	input wire										re2,
 	input wire[`RegAddrBus]			  raddr2,
 	output reg[`RegBus]           rdata2

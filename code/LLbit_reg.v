@@ -26,7 +26,7 @@
 // File:    LLbit_reg.v
 // Author:  Lei Silei
 // E-mail:  leishangwen@163.com
-// Description: ±£´æLLbit£¬ÓÃÔÚSC¡¢LLÖ¸ÁîÖĞ
+// Description: ä¿å­˜LLbitï¼Œç”¨åœ¨SCã€LLæŒ‡ä»¤ä¸­
 // Revision: 1.0
 //////////////////////////////////////////////////////////////////////
 
@@ -38,11 +38,11 @@ module LLbit_reg(
 	input wire										rst,
 	
 	input wire                    flush,
-	//Ğ´¶Ë¿Ú
+	//å†™ç«¯å£
 	input wire										LLbit_i,
 	input wire                    we,
 	
-	//¶Á¶Ë¿Ú1
+	//è¯»ç«¯å£1
 	output reg                    LLbit_o
 	
 );

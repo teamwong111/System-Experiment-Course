@@ -26,7 +26,7 @@
 // File:    div.v
 // Author:  Lei Silei
 // E-mail:  leishangwen@163.com
-// Description: ����ģ��
+// Description: 除法模块
 // Revision: 1.0
 //////////////////////////////////////////////////////////////////////
 
@@ -64,7 +64,7 @@ module div(
 			result_o <= {`ZeroWord,`ZeroWord};
 		end else begin
 		  case (state)
-		  	`DivFree:			begin               //DivFree״̬
+		  	`DivFree:			begin               //DivFree状态
 		  		if(start_i == `DivStart && annul_i == 1'b0) begin
 		  			if(opdata2_i == `ZeroWord) begin
 		  				state <= `DivByZero;
@@ -90,11 +90,11 @@ module div(
 						result_o <= {`ZeroWord,`ZeroWord};
 				  end          	
 		  	end
-		  	`DivByZero:		begin               //DivByZero״̬
+		  	`DivByZero:		begin               //DivByZero状态
          	dividend <= {`ZeroWord,`ZeroWord};
           state <= `DivEnd;		 		
 		  	end
-		  	`DivOn:				begin               //DivOn״̬
+		  	`DivOn:				begin               //DivOn状态
 		  		if(annul_i == 1'b0) begin
 		  			if(cnt != 6'b100000) begin
                if(div_temp[32] == 1'b1) begin
@@ -117,7 +117,7 @@ module div(
 		  			state <= `DivFree;
 		  		end	
 		  	end
-		  	`DivEnd:			begin               //DivEnd״̬
+		  	`DivEnd:			begin               //DivEnd状态
         	result_o <= {dividend[64:33], dividend[31:0]};  
           ready_o <= `DivResultReady;
           if(start_i == `DivStop) begin

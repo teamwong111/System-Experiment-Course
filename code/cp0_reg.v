@@ -26,8 +26,8 @@
 // File:    cp0_reg.v
 // Author:  Lei Silei
 // E-mail:  leishangwen@163.com
-// Description:ÊµÏÖÁËCP0ÖĞµÄÒ»Ğ©¼Ä´æÆ÷£¬¾ßÌåÓĞ£ºcount¡¢compare¡¢status¡¢
-//             cause¡¢EPC¡¢config¡¢PrId
+// Description:å®ç°äº†CP0ä¸­çš„ä¸€äº›å¯„å­˜å™¨ï¼Œå…·ä½“æœ‰ï¼šcountã€compareã€statusã€
+//             causeã€EPCã€configã€PrId
 // Revision: 1.0
 //////////////////////////////////////////////////////////////////////
 
@@ -66,13 +66,13 @@ module cp0_reg(
 		if(rst == `RstEnable) begin
 			count_o <= `ZeroWord;
 			compare_o <= `ZeroWord;
-			//status¼Ä´æÆ÷µÄCUÎª0001£¬±íÊ¾Ğ­´¦ÀíÆ÷CP0´æÔÚ
+			//statuså¯„å­˜å™¨çš„CUä¸º0001ï¼Œè¡¨ç¤ºåå¤„ç†å™¨CP0å­˜åœ¨
 			status_o <= 32'b00010000000000000000000000000000;
 			cause_o <= `ZeroWord;
 			epc_o <= `ZeroWord;
-			//config¼Ä´æÆ÷µÄBEÎª1£¬±íÊ¾Big-Endian£»MTÎª00£¬±íÊ¾Ã»ÓĞMMU
+			//configå¯„å­˜å™¨çš„BEä¸º1ï¼Œè¡¨ç¤ºBig-Endianï¼›MTä¸º00ï¼Œè¡¨ç¤ºæ²¡æœ‰MMU
 			config_o <= 32'b00000000000000001000000000000000;
-			//ÖÆ×÷ÕßÊÇL£¬¶ÔÓ¦µÄÊÇ0x48£¬ÀàĞÍÊÇ0x1£¬»ù±¾ÀàĞÍ£¬°æ±¾ºÅÊÇ1.0
+			//åˆ¶ä½œè€…æ˜¯Lï¼Œå¯¹åº”çš„æ˜¯0x48ï¼Œç±»å‹æ˜¯0x1ï¼ŒåŸºæœ¬ç±»å‹ï¼Œç‰ˆæœ¬å·æ˜¯1.0
 			prid_o <= 32'b00000000010011000000000100000010;
       timer_int_o <= `InterruptNotAssert;
 		end else begin
@@ -100,7 +100,7 @@ module cp0_reg(
 						epc_o <= data_i;
 					end
 					`CP0_REG_CAUSE:	begin
-					  //cause¼Ä´æÆ÷Ö»ÓĞIP[1:0]¡¢IV¡¢WP×Ö¶ÎÊÇ¿ÉĞ´µÄ
+					  //causeå¯„å­˜å™¨åªæœ‰IP[1:0]ã€IVã€WPå­—æ®µæ˜¯å¯å†™çš„
 						cause_o[9:8] <= data_i[9:8];
 						cause_o[23] <= data_i[23];
 						cause_o[22] <= data_i[22];

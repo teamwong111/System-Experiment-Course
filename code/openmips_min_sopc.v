@@ -26,12 +26,12 @@
 // File:    openmips_min_sopc.v
 // Author:  Lei Silei
 // E-mail:  leishangwen@163.com
-// Description: »ùÓÚOpenMIPS´¦ÀíÆ÷µÄÒ»¸ö¼òµ¥SOPC£¬ÓÃÓÚÑéÖ¤¾ß±¸ÁË
-//              wishbone×ÜÏß½Ó¿ÚµÄopenmips£¬¸ÃSOPC°üº¬openmips¡¢
-//              wb_conmax¡¢GPIO controller¡¢flash controller£¬uart 
-//              controller£¬ÒÔ¼°ÓÃÀ´·ÂÕæflashµÄÄ£¿éflashmem£¬ÔÚÆäÖĞ
-//              ´æ´¢Ö¸Áî£¬ÓÃÀ´·ÂÕæÍâ²¿ramµÄÄ£¿édatamem£¬ÔÚÆäÖĞ´æ´¢
-//              Êı¾İ£¬²¢ÇÒ¾ßÓĞwishbone×ÜÏß½Ó¿Ú    
+// Description: åŸºäºOpenMIPSå¤„ç†å™¨çš„ä¸€ä¸ªç®€å•SOPCï¼Œç”¨äºéªŒè¯å…·å¤‡äº†
+//              wishboneæ€»çº¿æ¥å£çš„openmipsï¼Œè¯¥SOPCåŒ…å«openmipsã€
+//              wb_conmaxã€GPIO controllerã€flash controllerï¼Œuart 
+//              controllerï¼Œä»¥åŠç”¨æ¥ä»¿çœŸflashçš„æ¨¡å—flashmemï¼Œåœ¨å…¶ä¸­
+//              å­˜å‚¨æŒ‡ä»¤ï¼Œç”¨æ¥ä»¿çœŸå¤–éƒ¨ramçš„æ¨¡å—datamemï¼Œåœ¨å…¶ä¸­å­˜å‚¨
+//              æ•°æ®ï¼Œå¹¶ä¸”å…·æœ‰wishboneæ€»çº¿æ¥å£    
 // Revision: 1.0
 //////////////////////////////////////////////////////////////////////
 
@@ -48,7 +48,7 @@ module openmips_min_sopc(
 	output wire[31:0]i_data
 );
 
-  //Á¬½ÓÖ¸Áî´æ´¢Æ÷
+  //è¿æ¥æŒ‡ä»¤å­˜å‚¨å™¨
   wire[`InstAddrBus] inst_addr;
   assign pc=inst_addr;
   //wire[`InstBus] inst;

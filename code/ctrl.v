@@ -26,7 +26,7 @@
 // File:    ctrl.v
 // Author:  Lei Silei
 // E-mail:  leishangwen@163.com
-// Description: ¿ØÖÆÄ£¿é£¬¿ØÖÆÁ÷Ë®ÏßµÄË¢ĞÂ¡¢ÔİÍ£µÈ
+// Description: æ§åˆ¶æ¨¡å—ï¼Œæ§åˆ¶æµæ°´çº¿çš„åˆ·æ–°ã€æš‚åœç­‰
 // Revision: 1.0
 //////////////////////////////////////////////////////////////////////
 
@@ -41,7 +41,7 @@ module ctrl(
 
 	input wire                   stallreq_from_id,
 
-  //À´×ÔÖ´ĞĞ½×¶ÎµÄÔİÍ£ÇëÇó
+  //æ¥è‡ªæ‰§è¡Œé˜¶æ®µçš„æš‚åœè¯·æ±‚
 	input wire                   stallreq_from_ex,
 
 	output reg[`RegBus]          new_pc,

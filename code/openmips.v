@@ -26,7 +26,7 @@
 // File:    openmips.v
 // Author:  Lei Silei
 // E-mail:  leishangwen@163.com
-// Description: OpenMIPS´¦ÀíÆ÷µÄ¶¥²ãÎÄ¼ş
+// Description: OpenMIPSå¤„ç†å™¨çš„é¡¶å±‚æ–‡ä»¶
 // Revision: 1.0
 //////////////////////////////////////////////////////////////////////
 
@@ -43,7 +43,7 @@ module openmips(
 	output wire[`RegBus]           rom_addr_o,
 //	output wire                    rom_ce_o,
 	
-  //Á¬½ÓÊı¾İ´æ´¢Æ÷data_ram
+  //è¿æ¥æ•°æ®å­˜å‚¨å™¨data_ram
 	input wire[`RegBus]           ram_data_i,
 	output wire[31:0]           ram_addr_o,
 	output wire[`RegBus]           ram_data_o,
@@ -59,7 +59,7 @@ module openmips(
 	wire[`InstAddrBus] id_pc_i;
 	wire[`InstBus] id_inst_i;
 	
-	//Á¬½ÓÒëÂë½×¶ÎIDÄ£¿éµÄÊä³öÓëID/EXÄ£¿éµÄÊäÈë
+	//è¿æ¥è¯‘ç é˜¶æ®µIDæ¨¡å—çš„è¾“å‡ºä¸ID/EXæ¨¡å—çš„è¾“å…¥
 	wire[`AluOpBus] id_aluop_o;
 	wire[`AluSelBus] id_alusel_o;
 	wire[`RegBus] id_reg1_o;
@@ -72,7 +72,7 @@ module openmips(
   wire[31:0] id_excepttype_o;
   wire[`RegBus] id_current_inst_address_o;
 	
-	//Á¬½ÓID/EXÄ£¿éµÄÊä³öÓëÖ´ĞĞ½×¶ÎEXÄ£¿éµÄÊäÈë
+	//è¿æ¥ID/EXæ¨¡å—çš„è¾“å‡ºä¸æ‰§è¡Œé˜¶æ®µEXæ¨¡å—çš„è¾“å…¥
 	wire[`AluOpBus] ex_aluop_i;
 	wire[`AluSelBus] ex_alusel_i;
 	wire[`RegBus] ex_reg1_i;
@@ -85,7 +85,7 @@ module openmips(
   wire[31:0] ex_excepttype_i;	
   wire[`RegBus] ex_current_inst_address_i;	
 	
-	//Á¬½ÓÖ´ĞĞ½×¶ÎEXÄ£¿éµÄÊä³öÓëEX/MEMÄ£¿éµÄÊäÈë
+	//è¿æ¥æ‰§è¡Œé˜¶æ®µEXæ¨¡å—çš„è¾“å‡ºä¸EX/MEMæ¨¡å—çš„è¾“å…¥
 	wire ex_wreg_o;
 	wire[`RegAddrBus] ex_wd_o;
 	wire[`RegBus] ex_wdata_o;
@@ -102,7 +102,7 @@ module openmips(
 	wire[`RegBus] ex_current_inst_address_o;
 	wire ex_is_in_delayslot_o;
 
-	//Á¬½ÓEX/MEMÄ£¿éµÄÊä³öÓë·Ã´æ½×¶ÎMEMÄ£¿éµÄÊäÈë
+	//è¿æ¥EX/MEMæ¨¡å—çš„è¾“å‡ºä¸è®¿å­˜é˜¶æ®µMEMæ¨¡å—çš„è¾“å…¥
 	wire mem_wreg_i;
 	wire[`RegAddrBus] mem_wd_i;
 	wire[`RegBus] mem_wdata_i;
@@ -119,7 +119,7 @@ module openmips(
 	wire mem_is_in_delayslot_i;
 	wire[`RegBus] mem_current_inst_address_i;	
 
-	//Á¬½Ó·Ã´æ½×¶ÎMEMÄ£¿éµÄÊä³öÓëMEM/WBÄ£¿éµÄÊäÈë
+	//è¿æ¥è®¿å­˜é˜¶æ®µMEMæ¨¡å—çš„è¾“å‡ºä¸MEM/WBæ¨¡å—çš„è¾“å…¥
 	wire mem_wreg_o;
 	wire[`RegAddrBus] mem_wd_o;
 	wire[`RegBus] mem_wdata_o;
@@ -135,7 +135,7 @@ module openmips(
 	wire mem_is_in_delayslot_o;
 	wire[`RegBus] mem_current_inst_address_o;			
 	
-	//Á¬½ÓMEM/WBÄ£¿éµÄÊä³öÓë»ØĞ´½×¶ÎµÄÊäÈë	
+	//è¿æ¥MEM/WBæ¨¡å—çš„è¾“å‡ºä¸å›å†™é˜¶æ®µçš„è¾“å…¥	
 	wire wb_wreg_i;
 	wire[`RegAddrBus] wb_wd_i;
 	wire[`RegBus] wb_wdata_i;
@@ -151,7 +151,7 @@ module openmips(
 	wire wb_is_in_delayslot_i;
 	wire[`RegBus] wb_current_inst_address_i;
 	
-	//Á¬½ÓÒëÂë½×¶ÎIDÄ£¿éÓëÍ¨ÓÃ¼Ä´æÆ÷RegfileÄ£¿é
+	//è¿æ¥è¯‘ç é˜¶æ®µIDæ¨¡å—ä¸é€šç”¨å¯„å­˜å™¨Regfileæ¨¡å—
   wire reg1_read;
   wire reg2_read;
   wire[`RegBus] reg1_data;
@@ -159,11 +159,11 @@ module openmips(
   wire[`RegAddrBus] reg1_addr;
   wire[`RegAddrBus] reg2_addr;
 
-	//Á¬½ÓÖ´ĞĞ½×¶ÎÓëhiloÄ£¿éµÄÊä³ö£¬¶ÁÈ¡HI¡¢LO¼Ä´æÆ÷
+	//è¿æ¥æ‰§è¡Œé˜¶æ®µä¸hiloæ¨¡å—çš„è¾“å‡ºï¼Œè¯»å–HIã€LOå¯„å­˜å™¨
 	wire[`RegBus] 	hi;
 	wire[`RegBus]   lo;
 
-  //Á¬½ÓÖ´ĞĞ½×¶ÎÓëex_regÄ£¿é£¬ÓÃÓÚ¶àÖÜÆÚµÄMADD¡¢MADDU¡¢MSUB¡¢MSUBUÖ¸Áî
+  //è¿æ¥æ‰§è¡Œé˜¶æ®µä¸ex_regæ¨¡å—ï¼Œç”¨äºå¤šå‘¨æœŸçš„MADDã€MADDUã€MSUBã€MSUBUæŒ‡ä»¤
 	wire[`DoubleRegBus] hilo_temp_o;
 	wire[1:0] cnt_o;
 	
@@ -206,7 +206,7 @@ module openmips(
 
   wire[`RegBus] latest_epc;
   
-  //pc_regÀı»¯
+  //pc_regä¾‹åŒ–
 	pc_reg pc_reg0(
 		.clk(clk),
 		.rst(rst),
@@ -222,7 +222,7 @@ module openmips(
 	
   assign rom_addr_o = pc;
 
-  //IF/IDÄ£¿éÀı»¯
+  //IF/IDæ¨¡å—ä¾‹åŒ–
 	if_id if_id0(
 		.clk(clk),
 		.rst(rst),
@@ -234,7 +234,7 @@ module openmips(
 		.id_inst(id_inst_i)      	
 	);
 	
-	//ÒëÂë½×¶ÎIDÄ£¿é
+	//è¯‘ç é˜¶æ®µIDæ¨¡å—
 	id id0(
 		.rst(rst),
 		.pc_i(id_pc_i),
@@ -245,26 +245,26 @@ module openmips(
 		.reg1_data_i(reg1_data),
 		.reg2_data_i(reg2_data),
 
-	  //´¦ÓÚÖ´ĞĞ½×¶ÎµÄÖ¸ÁîÒªĞ´ÈëµÄÄ¿µÄ¼Ä´æÆ÷ĞÅÏ¢
+	  //å¤„äºæ‰§è¡Œé˜¶æ®µçš„æŒ‡ä»¤è¦å†™å…¥çš„ç›®çš„å¯„å­˜å™¨ä¿¡æ¯
 		.ex_wreg_i(ex_wreg_o),
 		.ex_wdata_i(ex_wdata_o),
 		.ex_wd_i(ex_wd_o),
 
-	  //´¦ÓÚ·Ã´æ½×¶ÎµÄÖ¸ÁîÒªĞ´ÈëµÄÄ¿µÄ¼Ä´æÆ÷ĞÅÏ¢
+	  //å¤„äºè®¿å­˜é˜¶æ®µçš„æŒ‡ä»¤è¦å†™å…¥çš„ç›®çš„å¯„å­˜å™¨ä¿¡æ¯
 		.mem_wreg_i(mem_wreg_o),
 		.mem_wdata_i(mem_wdata_o),
 		.mem_wd_i(mem_wd_o),
 
 	  .is_in_delayslot_i(is_in_delayslot_i),
 
-		//ËÍµ½regfileµÄĞÅÏ¢
+		//é€åˆ°regfileçš„ä¿¡æ¯
 		.reg1_read_o(reg1_read),
 		.reg2_read_o(reg2_read), 	  
 
 		.reg1_addr_o(reg1_addr),
 		.reg2_addr_o(reg2_addr), 
 	  
-		//ËÍµ½ID/EXÄ£¿éµÄĞÅÏ¢
+		//é€åˆ°ID/EXæ¨¡å—çš„ä¿¡æ¯
 		.aluop_o(id_aluop_o),
 		.alusel_o(id_alusel_o),
 		.reg1_o(id_reg1_o),
@@ -285,7 +285,7 @@ module openmips(
 		.stallreq(stallreq_from_id)		
 	);
 
-  //Í¨ÓÃ¼Ä´æÆ÷RegfileÀı»¯
+  //é€šç”¨å¯„å­˜å™¨Regfileä¾‹åŒ–
 	regfile regfile1(
 		.clk (clk),
 		.rst (rst),
@@ -300,7 +300,7 @@ module openmips(
 		.rdata2 (reg2_data)
 	);
 
-	//ID/EXÄ£¿é
+	//ID/EXæ¨¡å—
 	id_ex id_ex0(
 		.clk(clk),
 		.rst(rst),
@@ -308,7 +308,7 @@ module openmips(
 		.stall(stall),
 		.flush(flush),
 		
-		//´ÓÒëÂë½×¶ÎIDÄ£¿é´«µİµÄĞÅÏ¢
+		//ä»è¯‘ç é˜¶æ®µIDæ¨¡å—ä¼ é€’çš„ä¿¡æ¯
 		.id_aluop(id_aluop_o),
 		.id_alusel(id_alusel_o),
 		.id_reg1(id_reg1_o),
@@ -322,7 +322,7 @@ module openmips(
 		.id_excepttype(id_excepttype_o),
 		.id_current_inst_address(id_current_inst_address_o),
 	
-		//´«µİµ½Ö´ĞĞ½×¶ÎEXÄ£¿éµÄĞÅÏ¢
+		//ä¼ é€’åˆ°æ‰§è¡Œé˜¶æ®µEXæ¨¡å—çš„ä¿¡æ¯
 		.ex_aluop(ex_aluop_i),
 		.ex_alusel(ex_alusel_i),
 		.ex_reg1(ex_reg1_i),
@@ -337,11 +337,11 @@ module openmips(
 		.ex_current_inst_address(ex_current_inst_address_i)		
 	);		
 	
-	//EXÄ£¿é
+	//EXæ¨¡å—
 	ex ex0(
 		.rst(rst),
 	
-		//ËÍµ½Ö´ĞĞ½×¶ÎEXÄ£¿éµÄĞÅÏ¢
+		//é€åˆ°æ‰§è¡Œé˜¶æ®µEXæ¨¡å—çš„ä¿¡æ¯
 		.aluop_i(ex_aluop_i),
 		.alusel_i(ex_alusel_i),
 		.reg1_i(ex_reg1_i),
@@ -371,12 +371,12 @@ module openmips(
 		.excepttype_i(ex_excepttype_i),
 		.current_inst_address_i(ex_current_inst_address_i),
 
-		//·Ã´æ½×¶ÎµÄÖ¸ÁîÊÇ·ñÒªĞ´CP0£¬ÓÃÀ´¼ì²âÊı¾İÏà¹Ø
+		//è®¿å­˜é˜¶æ®µçš„æŒ‡ä»¤æ˜¯å¦è¦å†™CP0ï¼Œç”¨æ¥æ£€æµ‹æ•°æ®ç›¸å…³
   	.mem_cp0_reg_we(mem_cp0_reg_we_o),
 		.mem_cp0_reg_write_addr(mem_cp0_reg_write_addr_o),
 		.mem_cp0_reg_data(mem_cp0_reg_data_o),
 	
-		//»ØĞ´½×¶ÎµÄÖ¸ÁîÊÇ·ñÒªĞ´CP0£¬ÓÃÀ´¼ì²âÊı¾İÏà¹Ø
+		//å›å†™é˜¶æ®µçš„æŒ‡ä»¤æ˜¯å¦è¦å†™CP0ï¼Œç”¨æ¥æ£€æµ‹æ•°æ®ç›¸å…³
   	.wb_cp0_reg_we(wb_cp0_reg_we_i),
 		.wb_cp0_reg_write_addr(wb_cp0_reg_write_addr_i),
 		.wb_cp0_reg_data(wb_cp0_reg_data_i),
@@ -384,12 +384,12 @@ module openmips(
 		.cp0_reg_data_i(cp0_data_o),
 		.cp0_reg_read_addr_o(cp0_raddr_i),
 		
-		//ÏòÏÂÒ»Á÷Ë®¼¶´«µİ£¬ÓÃÓÚĞ´CP0ÖĞµÄ¼Ä´æÆ÷
+		//å‘ä¸‹ä¸€æµæ°´çº§ä¼ é€’ï¼Œç”¨äºå†™CP0ä¸­çš„å¯„å­˜å™¨
 		.cp0_reg_we_o(ex_cp0_reg_we_o),
 		.cp0_reg_write_addr_o(ex_cp0_reg_write_addr_o),
 		.cp0_reg_data_o(ex_cp0_reg_data_o),	  
 			  
-	  //EXÄ£¿éµÄÊä³öµ½EX/MEMÄ£¿éĞÅÏ¢
+	  //EXæ¨¡å—çš„è¾“å‡ºåˆ°EX/MEMæ¨¡å—ä¿¡æ¯
 		.wd_o(ex_wd_o),
 		.wreg_o(ex_wreg_o),
 		.wdata_o(ex_wdata_o),
@@ -418,7 +418,7 @@ module openmips(
 		
 	);
 
-  //EX/MEMÄ£¿é
+  //EX/MEMæ¨¡å—
   ex_mem ex_mem0(
 		.clk(clk),
 		.rst(rst),
@@ -426,7 +426,7 @@ module openmips(
 	  .stall(stall),
 	  .flush(flush),
 	  
-		//À´×ÔÖ´ĞĞ½×¶ÎEXÄ£¿éµÄĞÅÏ¢	
+		//æ¥è‡ªæ‰§è¡Œé˜¶æ®µEXæ¨¡å—çš„ä¿¡æ¯	
 		.ex_wd(ex_wd_o),
 		.ex_wreg(ex_wreg_o),
 		.ex_wdata(ex_wdata_o),
@@ -449,7 +449,7 @@ module openmips(
 		.hilo_i(hilo_temp_o),
 		.cnt_i(cnt_o),	
 
-		//ËÍµ½·Ã´æ½×¶ÎMEMÄ£¿éµÄĞÅÏ¢
+		//é€åˆ°è®¿å­˜é˜¶æ®µMEMæ¨¡å—çš„ä¿¡æ¯
 		.mem_wd(mem_wd_i),
 		.mem_wreg(mem_wreg_i),
 		.mem_wdata(mem_wdata_i),
@@ -474,11 +474,11 @@ module openmips(
 						       	
 	);
 	
-  //MEMÄ£¿éÀı»¯
+  //MEMæ¨¡å—ä¾‹åŒ–
 	mem mem0(
 		.rst(rst),
 	
-		//À´×ÔEX/MEMÄ£¿éµÄĞÅÏ¢	
+		//æ¥è‡ªEX/MEMæ¨¡å—çš„ä¿¡æ¯	
 		.wd_i(mem_wd_i),
 		.wreg_i(mem_wreg_i),
 		.wdata_i(mem_wdata_i),
@@ -490,12 +490,12 @@ module openmips(
 		.mem_addr_i(mem_mem_addr_i),
 		.reg2_i(mem_reg2_i),
 	
-		//À´×ÔmemoryµÄĞÅÏ¢
+		//æ¥è‡ªmemoryçš„ä¿¡æ¯
 		.mem_data_i(ram_data_i),
 
-		//LLbit_iÊÇLLbit¼Ä´æÆ÷µÄÖµ
+		//LLbit_iæ˜¯LLbitå¯„å­˜å™¨çš„å€¼
 		.LLbit_i(LLbit_o),
-		//µ«²»Ò»¶¨ÊÇ×îĞÂÖµ£¬»ØĞ´½×¶Î¿ÉÄÜÒªĞ´LLbit£¬ËùÒÔ»¹Òª½øÒ»²½ÅĞ¶Ï
+		//ä½†ä¸ä¸€å®šæ˜¯æœ€æ–°å€¼ï¼Œå›å†™é˜¶æ®µå¯èƒ½è¦å†™LLbitï¼Œæ‰€ä»¥è¿˜è¦è¿›ä¸€æ­¥åˆ¤æ–­
 		.wb_LLbit_we_i(wb_LLbit_we_i),
 		.wb_LLbit_value_i(wb_LLbit_value_i),
 
@@ -511,7 +511,7 @@ module openmips(
 		.cp0_cause_i(cp0_cause),
 		.cp0_epc_i(cp0_epc),
 		
-		//»ØĞ´½×¶ÎµÄÖ¸ÁîÊÇ·ñÒªĞ´CP0£¬ÓÃÀ´¼ì²âÊı¾İÏà¹Ø
+		//å›å†™é˜¶æ®µçš„æŒ‡ä»¤æ˜¯å¦è¦å†™CP0ï¼Œç”¨æ¥æ£€æµ‹æ•°æ®ç›¸å…³
   	.wb_cp0_reg_we(wb_cp0_reg_we_i),
 		.wb_cp0_reg_write_addr(wb_cp0_reg_write_addr_i),
 		.wb_cp0_reg_data(wb_cp0_reg_data_i),	  
@@ -523,7 +523,7 @@ module openmips(
 		.cp0_reg_write_addr_o(mem_cp0_reg_write_addr_o),
 		.cp0_reg_data_o(mem_cp0_reg_data_o),			
 	  
-		//ËÍµ½MEM/WBÄ£¿éµÄĞÅÏ¢
+		//é€åˆ°MEM/WBæ¨¡å—çš„ä¿¡æ¯
 		.wd_o(mem_wd_o),
 		.wreg_o(mem_wreg_o),
 		.wdata_o(mem_wdata_o),
@@ -531,7 +531,7 @@ module openmips(
 		.lo_o(mem_lo_o),
 		.whilo_o(mem_whilo_o),
 		
-		//ËÍµ½memoryµÄĞÅÏ¢
+		//é€åˆ°memoryçš„ä¿¡æ¯
 		.mem_addr_o(ram_addr_o),
 		.mem_we_o(ram_we_o),
 		.mem_sel_o(ram_sel_o),
@@ -544,7 +544,7 @@ module openmips(
 		.current_inst_address_o(mem_current_inst_address_o)		
 	);
 
-  //MEM/WBÄ£¿é
+  //MEM/WBæ¨¡å—
 	mem_wb mem_wb0(
 		.clk(clk),
 		.rst(rst),
@@ -552,7 +552,7 @@ module openmips(
     .stall(stall),
     .flush(flush),
 
-		//À´×Ô·Ã´æ½×¶ÎMEMÄ£¿éµÄĞÅÏ¢	
+		//æ¥è‡ªè®¿å­˜é˜¶æ®µMEMæ¨¡å—çš„ä¿¡æ¯	
 		.mem_wd(mem_wd_o),
 		.mem_wreg(mem_wreg_o),
 		.mem_wdata(mem_wdata_o),
@@ -567,7 +567,7 @@ module openmips(
 		.mem_cp0_reg_write_addr(mem_cp0_reg_write_addr_o),
 		.mem_cp0_reg_data(mem_cp0_reg_data_o),					
 	
-		//ËÍµ½»ØĞ´½×¶ÎµÄĞÅÏ¢
+		//é€åˆ°å›å†™é˜¶æ®µçš„ä¿¡æ¯
 		.wb_wd(wb_wd_i),
 		.wb_wreg(wb_wreg_i),
 		.wb_wdata(wb_wdata_i),
@@ -588,12 +588,12 @@ module openmips(
 		.clk(clk),
 		.rst(rst),
 	
-		//Ğ´¶Ë¿Ú
+		//å†™ç«¯å£
 		.we(wb_whilo_i),
 		.hi_i(wb_hi_i),
 		.lo_i(wb_lo_i),
 	
-		//¶Á¶Ë¿Ú1
+		//è¯»ç«¯å£1
 		.hi_o(hi),
 		.lo_o(lo)	
 	);
@@ -606,7 +606,7 @@ module openmips(
  
 		.stallreq_from_id(stallreq_from_id),
 	
-  	//À´×ÔÖ´ĞĞ½×¶ÎµÄÔİÍ£ÇëÇó
+  	//æ¥è‡ªæ‰§è¡Œé˜¶æ®µçš„æš‚åœè¯·æ±‚
 		.stallreq_from_ex(stallreq_from_ex),
 	  .new_pc(new_pc),
 	  .flush(flush),
@@ -632,11 +632,11 @@ module openmips(
 		.rst(rst),
 	  .flush(flush),
 	  
-		//Ğ´¶Ë¿Ú
+		//å†™ç«¯å£
 		.LLbit_i(wb_LLbit_value_i),
 		.we(wb_LLbit_we_i),
 	
-		//¶Á¶Ë¿Ú1
+		//è¯»ç«¯å£1
 		.LLbit_o(LLbit_o)
 	
 	);
