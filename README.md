@@ -17,7 +17,7 @@ It is my term project repo of System-Experiment-Course(2020-2021) in Tongji Univ
 ---
 
 ## Introduction
-This repo is one of the term projects of Tongji University's System Experiment Course in 2020-2021. There are three term projects in this course, which are as follows:
+This repo is one of the term projects of System-Experiment-Course(2020-2021) in Tongji University. There are three term projects in this course, which are as follows:
 
 1. 89 instructions' CPU
 2. Transplant ucos-II operating system
